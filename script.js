@@ -90,5 +90,5 @@ function answer(isPhish) {
   }
 
   document.getElementById("trainResult").textContent +=
-     | Результат: ${correct}/${total};
+     Результат: ${correct}/${total};
 }
