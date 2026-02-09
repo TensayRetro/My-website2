@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Anti‑Phishing Hub — Интерактивная защита</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header fade-in">
+  <div class="logo">
+    <div class="logo-icon">🛡️</div>
+    <div class="logo-text">Anti‑Phishing Hub</div>
+  </div>
+</header>
+
+<nav class="main-menu slide-down">
+  <button onclick="showSection('home')">Главная</button>
+  <button onclick="showSection('checker')">Проверка ссылок</button>
+  <button onclick="showSection('examples')">Примеры фишинга</button>
+  <button onclick="showSection('training')">Тренажёр</button>
+  <button onclick="showSection('education')">Обучение</button>
+  <button onclick="showSection('tips')">Советы</button>
+</nav>
+
+<section id="home" class="section fade-in">
+  <h1 class="big-title">Anti‑Phishing Hub</h1>
+  <p class="subtitle">Учись определять фишинг. Тренируйся. Будь защищён.</p>
+  <div class="home-grid">
+    <div class="home-card pop" onclick="showSection('checker')">🔍 Проверка ссылок</div>
+    <div class="home-card pop" onclick="showSection('examples')">⚠️ Примеры фишинга</div>
+    <div class="home-card pop" onclick="showSection('training')">🎯 Тренажёр</div>
+    <div class="home-card pop" onclick="showSection('education')">📘 Обучение</div>
+    <div class="home-card pop" onclick="showSection('tips')">🔐 Советы</div>
+  </div>
+</section>
+
+<section id="checker" class="section hidden fade-in">
+  <h2>Проверка ссылок</h2>
+  <input type="text" id="urlInput" placeholder="Введите ссылку...">
+  <button class="primary" onclick="checkLink()">Проверить</button>
+  <p id="checkResult"></p>
+</section>
+
+<section id="examples" class="section hidden fade-in">
+  <h2>Примеры фишинга</h2>
+  <div id="phishContainer" class="phish-list"></div>
+</section>
+
+<section id="training" class="section hidden fade-in">
+  <h2>Тренажёр</h2>
+  <button class="primary" onclick="generateTraining()">Получить пример</button>
+  <p id="trainText" class="train-text"></p>
+  <div class="train-buttons">
+    <button onclick="answer(true)">Фишинг</button>
+    <button onclick="answer(false)">Не фишинг</button>
+  </div>
+  <p id="trainResult"></p>
+</section>
+
+<section id="education" class="section hidden fade-in">
+  <h2>Обучение</h2>
+  <div class="edu-block">
+    <h3>Основные признаки фишинга</h3>
+    <ul>
+      <li>Давление: «Срочно», «Аккаунт будет удалён»</li>
+      <li>Ошибки в адресе сайта</li>
+      <li>Неправдоподобные обещания</li>
+    </ul>
+    <h3>Как проверять URL</h3>
+    <ul>
+      <li>Проверяй домен вручную</li>
+      <li>Смотри на лишние слова: free-gift, login-secure-now</li>
+    </ul>
+    <h3>Механика фишинга</h3>
+    <p>Злоумышленники создают копии сайтов и выманивают данные пользователя.</p>
+  </div>
+</section>
+
+<section id="tips" class="section hidden fade-in">
+  <h2>Советы по кибербезопасности</h2>
+  <ul>
+    <li>Используй сложные пароли</li>
+    <li>Включай двухфакторную аутентификацию</li>
+    <li>Не переходи по подозрительным ссылкам</li>
+    <li>Проверяй отправителя письма</li>
+  </ul>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
