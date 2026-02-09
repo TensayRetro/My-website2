@@ -89,6 +89,6 @@ function answer(isPhish) {
     trainIndex = 0;
   }
 
-  document.getElementById("trainResult").textContent +=
-     Результат: ${correct}/${total};
+document.getElementById("trainResult").textContent += `Результат: ${correct}/${total}`;
+
 }
