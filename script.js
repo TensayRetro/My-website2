@@ -54,23 +54,41 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let trainData=[
-  {text:"Подтвердите карту по ссылке",phish:true},
-  {text:"Ваш заказ готов",phish:false},
-  {text:"Получите подарок!",phish:true},
-  {text:"Изменение расписания уроков",phish:false}
+const trainingData = [
+  { text: "Подтвердите карту по ссылке", phish: true },
+  { text: "Ваш заказ доставлен", phish: false },
+  { text: "Вы выиграли подарок!", phish: true },
+  { text: "Изменение расписания уроков", phish: false },
+  { text: "Срочно войдите в аккаунт", phish: true },
+  { text: "Напоминание о встрече завтра", phish: false }
 ];
 
-let cur=null;
+let trainIndex = 0;
+let correct = 0;
+let total = 0;
 
-function generateTraining(){
-  cur=trainData[Math.floor(Math.random()*trainData.length)];
-  document.getElementById("trainText").textContent=cur.text;
-  document.getElementById("trainResult").textContent="";
+function generateTraining() {
+  const ex = trainingData[trainIndex];
+  document.getElementById("trainText").textContent = ex.text;
+  document.getElementById("trainResult").textContent = "";
 }
 
-function answer(phish){
-  if(cur===null)return;
-  document.getElementById("trainResult").textContent=
-    (phish===cur.phish) ? "✔ Правильно!" : "❌ Ошибка!";
+function answer(isPhish) {
+  const ex = trainingData[trainIndex];
+  total++;
+
+  if (isPhish === ex.phish) {
+    correct++;
+    document.getElementById("trainResult").textContent = "✔ Верно";
+  } else {
+    document.getElementById("trainResult").textContent = "❌ Неверно";
+  }
+
+  trainIndex++;
+  if (trainIndex >= trainingData.length) {
+    trainIndex = 0;
+  }
+
+  document.getElementById("trainResult").textContent +=
+     | Результат: ${correct}/${total};
 }
